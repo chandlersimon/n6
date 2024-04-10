@@ -1,5 +1,4 @@
-______________________________________________________________________________________________________________________
-//BOOKMARK: UPDATE COUNT IN MENUBAR
+//🔥 BOOKMARK: UPDATE COUNT IN MENUBAR
 function updateBookmarkCount() {
     let bookmarkKeys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's'];
     let counter = 0;
@@ -34,8 +33,7 @@ $('.bookmark').click(function() {
     setTimeout(updateBookmarkCount, 1);
 });
 
-______________________________________________________________________________________________________________________
-//BOOKMARK: ANIMATE CARD GOING INTO MENUBAR
+//🔥 BOOKMARK: ANIMATE CARD GOING INTO MENUBAR
 
 $(document).ready(function() {
     var $pageCardTrack = $('.page-card-track');
