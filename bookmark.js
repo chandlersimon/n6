@@ -1,5 +1,5 @@
 ______________________________________________________________________________________________________________________
-//BOOKMARK: UPDATE COUNT IN MENUBAR
+//OOKMARK: UPDATE COUNT IN MENUBAR
 function updateBookmarkCount() {
     let bookmarkKeys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's'];
     let counter = 0;
