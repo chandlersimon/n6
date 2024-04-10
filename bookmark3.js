@@ -1,3 +1,52 @@
+//🔥 BOOKMARK: LOGIC FOR LOCAL STORAGE
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's'];
+
+const handleBookmarkClick = function(letter) {
+  setTimeout(() => {
+    const value = $('#bookmark-value').text();
+    localStorage.setItem(letter, value);
+    $(`.resetsthis.${letter}`).toggleClass('visible');
+  }, 1);
+};
+
+letters.forEach(letter => {
+  $(`.bookmark.${letter}`).click(() => {
+    handleBookmarkClick(letter);
+  });
+});
+
+$('.bookmark.reset').click(() => {
+  const resets = $('#bookmark-value').text();
+  letters.forEach(letter => {
+    localStorage.setItem(letter, resets);
+    $(`.resetsthis.${letter}`).removeClass('visible');
+  });
+});
+
+const updateBookmarkIcons = function(letter) {
+  if (localStorage.getItem(letter) === `?${letter}`) {
+    $(`.resetsthis.${letter}`).addClass('visible');
+  } else {
+    $(`.resetsthis.${letter}`).removeClass('visible');
+  }
+};
+
+letters.forEach(letter => {
+  updateBookmarkIcons(letter);
+});
+
+letters.forEach(letter => {
+  $(`.bookmark.${letter}`).click(() => {
+    if (localStorage.getItem(letter) === `?${letter}`) {
+      $('#bookmark-value').text('?0');
+    } else {
+      $('#bookmark-value').text(`?${letter}`);
+    }
+    updateBookmarkIcons(letter);
+  });
+});
+
+
 //🔥 BOOKMARK: UPDATE COUNT IN MENUBAR
 function updateBookmarkCount() {
     let bookmarkKeys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's'];
@@ -33,8 +82,8 @@ $('.bookmark').click(function() {
     setTimeout(updateBookmarkCount, 1);
 });
 
-//🔥 BOOKMARK: ANIMATE CARD GOING INTO MENUBAR
 
+//🔥 BOOKMARK: ANIMATE CARD GOING INTO MENUBAR
 $(document).ready(function() {
     var $pageCardTrack = $('.page-card-track');
     var $bookmarks = $(".bookmark");
